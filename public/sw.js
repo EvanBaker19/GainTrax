@@ -1,4 +1,4 @@
-const CACHE = 'gaintrax-v1';
+const CACHE = 'gaintrax-v2';
 const ASSETS = ['/', '/index.html'];
 
 self.addEventListener('install', e =>
