@@ -10,54 +10,131 @@ const save = (key, val) => {
 
 // ── Exercise Database ──────────────────────────────────────
 const DEFAULT_EXERCISES = [
-  { id:'e1',  name:'Bench Press',               category:'Chest' },
-  { id:'e2',  name:'Incline Bench Press',        category:'Chest' },
-  { id:'e3',  name:'Decline Bench Press',        category:'Chest' },
-  { id:'e4',  name:'Dumbbell Fly',               category:'Chest' },
-  { id:'e5',  name:'Cable Fly',                  category:'Chest' },
-  { id:'e6',  name:'Push-Up',                    category:'Chest' },
-  { id:'e7',  name:'Chest Dip',                  category:'Chest' },
-  { id:'e8',  name:'Deadlift',                   category:'Back'  },
-  { id:'e9',  name:'Pull-Up',                    category:'Back'  },
-  { id:'e10', name:'Barbell Row',                category:'Back'  },
-  { id:'e11', name:'Seated Cable Row',           category:'Back'  },
-  { id:'e12', name:'Lat Pulldown',               category:'Back'  },
-  { id:'e13', name:'T-Bar Row',                  category:'Back'  },
-  { id:'e14', name:'Single Arm DB Row',          category:'Back'  },
-  { id:'e15', name:'Overhead Press',             category:'Shoulders' },
-  { id:'e16', name:'Lateral Raise',              category:'Shoulders' },
-  { id:'e17', name:'Front Raise',                category:'Shoulders' },
-  { id:'e18', name:'Face Pull',                  category:'Shoulders' },
-  { id:'e19', name:'Arnold Press',               category:'Shoulders' },
-  { id:'e20', name:'Shrug',                      category:'Shoulders' },
-  { id:'e21', name:'Barbell Curl',               category:'Biceps' },
-  { id:'e22', name:'Dumbbell Curl',              category:'Biceps' },
-  { id:'e23', name:'Hammer Curl',                category:'Biceps' },
-  { id:'e24', name:'Preacher Curl',              category:'Biceps' },
-  { id:'e25', name:'Cable Curl',                 category:'Biceps' },
-  { id:'e26', name:'Tricep Pushdown',            category:'Triceps' },
-  { id:'e27', name:'Skull Crusher',              category:'Triceps' },
-  { id:'e28', name:'Overhead Tricep Extension',  category:'Triceps' },
-  { id:'e29', name:'Close Grip Bench Press',     category:'Triceps' },
-  { id:'e30', name:'Tricep Dip',                 category:'Triceps' },
-  { id:'e31', name:'Squat',                      category:'Legs' },
-  { id:'e32', name:'Leg Press',                  category:'Legs' },
-  { id:'e33', name:'Romanian Deadlift',          category:'Legs' },
-  { id:'e34', name:'Leg Curl',                   category:'Legs' },
-  { id:'e35', name:'Leg Extension',              category:'Legs' },
-  { id:'e36', name:'Calf Raise',                 category:'Legs' },
-  { id:'e37', name:'Lunge',                      category:'Legs' },
-  { id:'e38', name:'Bulgarian Split Squat',      category:'Legs' },
-  { id:'e39', name:'Hip Thrust',                 category:'Legs' },
-  { id:'e40', name:'Plank',                      category:'Core' },
-  { id:'e41', name:'Crunch',                     category:'Core' },
-  { id:'e42', name:'Leg Raise',                  category:'Core' },
-  { id:'e43', name:'Russian Twist',              category:'Core' },
-  { id:'e44', name:'Ab Wheel Rollout',           category:'Core' },
-  { id:'e45', name:'Cable Crunch',               category:'Core' },
+  // CHEST
+  { id:'e1',  name:'Barbell Bench Press',         category:'Chest' },
+  { id:'e2',  name:'Incline Barbell Bench Press',  category:'Chest' },
+  { id:'e3',  name:'Decline Barbell Bench Press',  category:'Chest' },
+  { id:'e4',  name:'Dumbbell Bench Press',         category:'Chest' },
+  { id:'e5',  name:'Incline Dumbbell Press',       category:'Chest' },
+  { id:'e6',  name:'Decline Dumbbell Press',       category:'Chest' },
+  { id:'e7',  name:'Dumbbell Fly',                 category:'Chest' },
+  { id:'e8',  name:'Incline Dumbbell Fly',         category:'Chest' },
+  { id:'e9',  name:'Cable Fly',                    category:'Chest' },
+  { id:'e10', name:'High to Low Cable Fly',        category:'Chest' },
+  { id:'e11', name:'Low to High Cable Fly',        category:'Chest' },
+  { id:'e12', name:'Pec Deck Machine',             category:'Chest' },
+  { id:'e13', name:'Push-Up',                      category:'Chest' },
+  { id:'e14', name:'Chest Dip',                    category:'Chest' },
+  { id:'e15', name:'Dumbbell Pullover',            category:'Chest' },
+  // BACK
+  { id:'e16', name:'Deadlift',                     category:'Back' },
+  { id:'e17', name:'Romanian Deadlift',            category:'Back' },
+  { id:'e18', name:'Pull-Up',                      category:'Back' },
+  { id:'e19', name:'Chin-Up',                      category:'Back' },
+  { id:'e20', name:'Barbell Row',                  category:'Back' },
+  { id:'e21', name:'Pendlay Row',                  category:'Back' },
+  { id:'e22', name:'Seated Cable Row',             category:'Back' },
+  { id:'e23', name:'Single Arm DB Row',            category:'Back' },
+  { id:'e24', name:'Lat Pulldown',                 category:'Back' },
+  { id:'e25', name:'Close Grip Lat Pulldown',      category:'Back' },
+  { id:'e26', name:'T-Bar Row',                    category:'Back' },
+  { id:'e27', name:'Chest Supported Row',          category:'Back' },
+  { id:'e28', name:'Straight Arm Pulldown',        category:'Back' },
+  { id:'e29', name:'Cable Row',                    category:'Back' },
+  { id:'e30', name:'Rack Pull',                    category:'Back' },
+  // SHOULDERS
+  { id:'e31', name:'Overhead Press',               category:'Shoulders' },
+  { id:'e32', name:'Seated DB Shoulder Press',     category:'Shoulders' },
+  { id:'e33', name:'Arnold Press',                 category:'Shoulders' },
+  { id:'e34', name:'Lateral Raise',                category:'Shoulders' },
+  { id:'e35', name:'Cable Lateral Raise',          category:'Shoulders' },
+  { id:'e36', name:'Front Raise',                  category:'Shoulders' },
+  { id:'e37', name:'Rear Delt Fly',                category:'Shoulders' },
+  { id:'e38', name:'Face Pull',                    category:'Shoulders' },
+  { id:'e39', name:'Shrug',                        category:'Shoulders' },
+  { id:'e40', name:'DB Shrug',                     category:'Shoulders' },
+  { id:'e41', name:'Upright Row',                  category:'Shoulders' },
+  { id:'e42', name:'Machine Shoulder Press',       category:'Shoulders' },
+  { id:'e43', name:'Reverse Pec Deck',             category:'Shoulders' },
+  // BICEPS
+  { id:'e44', name:'Barbell Curl',                 category:'Biceps' },
+  { id:'e45', name:'EZ Bar Curl',                  category:'Biceps' },
+  { id:'e46', name:'Dumbbell Curl',                category:'Biceps' },
+  { id:'e47', name:'Alternating DB Curl',          category:'Biceps' },
+  { id:'e48', name:'Hammer Curl',                  category:'Biceps' },
+  { id:'e49', name:'Cross Body Hammer Curl',       category:'Biceps' },
+  { id:'e50', name:'Preacher Curl',                category:'Biceps' },
+  { id:'e51', name:'EZ Bar Preacher Curl',         category:'Biceps' },
+  { id:'e52', name:'Concentration Curl',           category:'Biceps' },
+  { id:'e53', name:'Cable Curl',                   category:'Biceps' },
+  { id:'e54', name:'Incline DB Curl',              category:'Biceps' },
+  { id:'e55', name:'Spider Curl',                  category:'Biceps' },
+  { id:'e56', name:'Zottman Curl',                 category:'Biceps' },
+  { id:'e57', name:'Machine Curl',                 category:'Biceps' },
+  // TRICEPS
+  { id:'e58', name:'Tricep Pushdown',              category:'Triceps' },
+  { id:'e59', name:'Rope Pushdown',                category:'Triceps' },
+  { id:'e60', name:'Skull Crusher',                category:'Triceps' },
+  { id:'e61', name:'EZ Bar Skull Crusher',         category:'Triceps' },
+  { id:'e62', name:'Overhead Tricep Extension',    category:'Triceps' },
+  { id:'e63', name:'Cable Overhead Extension',     category:'Triceps' },
+  { id:'e64', name:'Close Grip Bench Press',       category:'Triceps' },
+  { id:'e65', name:'Tricep Dip',                   category:'Triceps' },
+  { id:'e66', name:'Diamond Push-Up',              category:'Triceps' },
+  { id:'e67', name:'Kickback',                     category:'Triceps' },
+  { id:'e68', name:'Single Arm Cable Pushdown',    category:'Triceps' },
+  { id:'e69', name:'JM Press',                     category:'Triceps' },
+  // LEGS
+  { id:'e70', name:'Squat',                        category:'Legs' },
+  { id:'e71', name:'Front Squat',                  category:'Legs' },
+  { id:'e72', name:'Hack Squat',                   category:'Legs' },
+  { id:'e73', name:'Leg Press',                    category:'Legs' },
+  { id:'e74', name:'Leg Curl',                     category:'Legs' },
+  { id:'e75', name:'Leg Extension',                category:'Legs' },
+  { id:'e76', name:'Calf Raise',                   category:'Legs' },
+  { id:'e77', name:'Seated Calf Raise',            category:'Legs' },
+  { id:'e78', name:'Lunge',                        category:'Legs' },
+  { id:'e79', name:'Walking Lunge',                category:'Legs' },
+  { id:'e80', name:'Bulgarian Split Squat',        category:'Legs' },
+  { id:'e81', name:'Hip Thrust',                   category:'Legs' },
+  { id:'e82', name:'Glute Bridge',                 category:'Legs' },
+  { id:'e83', name:'Sumo Deadlift',                category:'Legs' },
+  { id:'e84', name:'Good Morning',                 category:'Legs' },
+  { id:'e85', name:'Step Up',                      category:'Legs' },
+  { id:'e86', name:'Goblet Squat',                 category:'Legs' },
+  { id:'e87', name:'Lying Leg Curl',               category:'Legs' },
+  { id:'e88', name:'Nordic Curl',                  category:'Legs' },
+  { id:'e89', name:'Adductor Machine',             category:'Legs' },
+  { id:'e90', name:'Abductor Machine',             category:'Legs' },
+  // CORE
+  { id:'e91', name:'Plank',                        category:'Core' },
+  { id:'e92', name:'Side Plank',                   category:'Core' },
+  { id:'e93', name:'Crunch',                       category:'Core' },
+  { id:'e94', name:'Cable Crunch',                 category:'Core' },
+  { id:'e95', name:'Leg Raise',                    category:'Core' },
+  { id:'e96', name:'Hanging Leg Raise',            category:'Core' },
+  { id:'e97', name:'Russian Twist',                category:'Core' },
+  { id:'e98', name:'Ab Wheel Rollout',             category:'Core' },
+  { id:'e99', name:'Decline Sit-Up',               category:'Core' },
+  { id:'e100',name:'Dragon Flag',                  category:'Core' },
+  { id:'e101',name:'Landmine Rotation',            category:'Core' },
+  { id:'e102',name:'Pallof Press',                 category:'Core' },
+  { id:'e103',name:'Hollow Body Hold',             category:'Core' },
+  // FOREARMS
+  { id:'e104',name:'Wrist Curl',                   category:'Forearms' },
+  { id:'e105',name:'Reverse Wrist Curl',           category:'Forearms' },
+  { id:'e106',name:'Barbell Reverse Curl',         category:'Forearms' },
+  { id:'e107',name:'Zottman Curl',                 category:'Forearms' },
+  { id:'e108',name:'Farmer Carry',                 category:'Forearms' },
+  { id:'e109',name:'Dead Hang',                    category:'Forearms' },
+  { id:'e110',name:'Wrist Roller',                 category:'Forearms' },
+  { id:'e111',name:'Plate Pinch',                  category:'Forearms' },
+  { id:'e112',name:'Behind the Back Wrist Curl',   category:'Forearms' },
+  { id:'e113',name:'Sulek Curl',                   category:'Forearms' },
+  { id:'e114',name:'Cable Reverse Curl',           category:'Forearms' },
 ];
 
-const CATS = ['Chest','Back','Shoulders','Biceps','Triceps','Legs','Core'];
+const CATS = ['Chest','Back','Shoulders','Biceps','Triceps','Legs','Core','Forearms'];
 const uid  = () => Math.random().toString(36).slice(2,9);
 const fmt  = d  => new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric'});
 const fmtL = d  => new Date(d).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
@@ -82,6 +159,7 @@ function BottomNav({ view, navigate }) {
   const tabs = [
     { id:'home',      label:'Home',      icon:Ic.home },
     { id:'splits',    label:'Splits',    icon:Ic.splits },
+    { id:'pr',        label:'PRs',       icon:Ic.trophy },
     { id:'history',   label:'History',   icon:Ic.clock },
     { id:'exercises', label:'Exercises', icon:Ic.dumbbell },
   ];
@@ -150,16 +228,14 @@ function HomeView({ splits, sessions, exercises, navigate }) {
 
   return (
     <div className="p-4">
-      {/* Header */}
       <div className="flex items-center gap-2 mb-6 mt-2">
         <span style={{color:'#f97316'}}>{Ic.fire}</span>
         <div>
-          <h1 className="text-2xl font-black tracking-tight text-white">GAINLOG</h1>
+          <h1 className="text-2xl font-black tracking-tight text-white">GAINTRAX</h1>
           <p className="text-xs" style={{color:'#6b7280',letterSpacing:'0.08em'}}>TRACK · OVERLOAD · GROW</p>
         </div>
       </div>
 
-      {/* Start Workout CTA */}
       <button onClick={() => splits.length ? setPicker(true) : navigate('splits')}
         className="w-full py-5 rounded-2xl font-black text-lg tracking-wide mb-5 flex items-center justify-center gap-2 transition-all active:scale-95"
         style={{background:'linear-gradient(135deg,#ea580c,#f97316)',color:'#fff',boxShadow:'0 4px 24px rgba(249,115,22,0.3)'}}>
@@ -173,7 +249,6 @@ function HomeView({ splits, sessions, exercises, navigate }) {
         </div>
       )}
 
-      {/* Last Workout Card */}
       {recent && (
         <div className="rounded-2xl p-4 mb-4" style={{background:'#141414',border:'1px solid #1e1e1e'}}>
           <p className="text-xs font-bold uppercase mb-2" style={{color:'#6b7280',letterSpacing:'0.1em'}}>Last Workout</p>
@@ -199,7 +274,6 @@ function HomeView({ splits, sessions, exercises, navigate }) {
         </div>
       )}
 
-      {/* Stats row */}
       {sessions.length > 0 && (
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-2xl p-4" style={{background:'#141414',border:'1px solid #1e1e1e'}}>
@@ -215,7 +289,6 @@ function HomeView({ splits, sessions, exercises, navigate }) {
         </div>
       )}
 
-      {/* Split Picker Sheet */}
       {picker && (
         <div className="fixed inset-0 z-50 flex items-end" style={{background:'rgba(0,0,0,0.85)'}}
              onClick={() => { setPicker(false); setSelSplit(null); }}>
@@ -304,7 +377,7 @@ function SplitsView({ splits, setSplits, navigate }) {
 function SplitEditorView({ splits, setSplits, exercises, navigate, editSplit }) {
   const [name, setName]   = useState(editSplit?.name || '');
   const [days, setDays]   = useState(editSplit?.days || []);
-  const [picker, setPicker] = useState(null); // dayId
+  const [picker, setPicker] = useState(null);
 
   const addDay   = () => setDays(p=>[...p, {id:uid(), name:`Day ${p.length+1}`, exerciseIds:[]}]);
   const remDay   = id => setDays(p=>p.filter(d=>d.id!==id));
@@ -442,7 +515,6 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
 
   return (
     <div className="p-4">
-      {/* Header */}
       <div className="flex items-center gap-3 mb-2 mt-1">
         <button onClick={()=>{ if(window.confirm('Cancel workout? Progress will be lost.')) navigate('home'); }}
           style={{color:'#9ca3af'}}>{Ic.back}</button>
@@ -456,7 +528,6 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
         </div>
       </div>
 
-      {/* Progress bar */}
       <div className="h-1 rounded-full mb-4" style={{background:'#1e1e1e'}}>
         <div className="h-1 rounded-full transition-all" style={{width:`${pct}%`,background:'linear-gradient(90deg,#ea580c,#f97316)'}} />
       </div>
@@ -467,7 +538,6 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
         </p>
       )}
 
-      {/* Exercises */}
       <div className="flex flex-col gap-4 mb-4">
         {wEx.map((ex, ei) => {
           const info  = exercises.find(e=>e.id===ex.exerciseId);
@@ -485,7 +555,6 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
                 <button onClick={()=>remEx(ei)} style={{color:'#374151'}}>{Ic.trash}</button>
               </div>
 
-              {/* Last session reference */}
               {last && (
                 <div className="rounded-xl px-3 py-2 mb-3" style={{background:'#1e1e1e',border:'1px solid #2a2a2a'}}>
                   <p className="text-xs font-bold mb-1.5" style={{color:'#f97316',letterSpacing:'0.08em'}}>LAST SESSION — BEAT THIS</p>
@@ -499,7 +568,6 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
                 </div>
               )}
 
-              {/* Set headers */}
               <div className="grid gap-2 mb-1 px-1" style={{gridTemplateColumns:'28px 1fr 1fr 36px'}}>
                 <span className="text-xs text-center" style={{color:'#4b5563'}}>SET</span>
                 <span className="text-xs text-center" style={{color:'#4b5563'}}>LBS</span>
@@ -507,7 +575,6 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
                 <span></span>
               </div>
 
-              {/* Sets */}
               {ex.sets.map((s,si) => (
                 <div key={si} className="grid gap-2 mb-2 items-center" style={{gridTemplateColumns:'28px 1fr 1fr 36px'}}>
                   <span className="text-sm font-black text-center" style={{color: s.completed?'#f97316':'#4b5563'}}>{si+1}</span>
@@ -553,6 +620,97 @@ function WorkoutView({ split, day, exercises, sessions, saveSession, navigate })
       {addExOpen && (
         <ExSheet exercises={availEx} selected={[]} onToggle={addEx}
           onClose={()=>setAddExOpen(false)} title="Add Exercise" />
+      )}
+    </div>
+  );
+}
+
+// ── PR View ────────────────────────────────────────────────
+function PRView({ exercises, sessions }) {
+  const DEFAULT_PR_IDS = ['e1','e70','e16']; // Bench, Squat, Deadlift
+  const [tracked, setTracked] = useState(() => {
+    try { const v = localStorage.getItem('gl_tracked_prs'); return v ? JSON.parse(v) : DEFAULT_PR_IDS; }
+    catch { return DEFAULT_PR_IDS; }
+  });
+  const [picker, setPicker] = useState(false);
+
+  useEffect(() => {
+    try { localStorage.setItem('gl_tracked_prs', JSON.stringify(tracked)); } catch {}
+  }, [tracked]);
+
+  const getPR = (exId) => {
+    let best = 0;
+    let bestDate = null;
+    sessions.forEach(s => {
+      const ex = s.exercises.find(e => e.exerciseId === exId);
+      if (ex) {
+        ex.sets.forEach(set => {
+          if (set.weight > best) { best = set.weight; bestDate = s.date; }
+        });
+      }
+    });
+    return { weight: best, date: bestDate };
+  };
+
+  const addEx  = (id) => { if (!tracked.includes(id)) setTracked(p => [...p, id]); setPicker(false); };
+  const remove = (id) => { if (DEFAULT_PR_IDS.includes(id)) return; setTracked(p => p.filter(x => x !== id)); };
+
+  const available = exercises.filter(e => !tracked.includes(e.id));
+
+  return (
+    <div className="p-4">
+      <div className="flex items-center gap-2 mb-5 mt-1">
+        <span style={{color:'#f97316'}}>{Ic.trophy}</span>
+        <h1 className="text-xl font-black text-white">PERSONAL RECORDS</h1>
+      </div>
+
+      <div className="flex flex-col gap-3 mb-4">
+        {tracked.map(exId => {
+          const info = exercises.find(e => e.id === exId);
+          if (!info) return null;
+          const pr = getPR(exId);
+          const isDefault = DEFAULT_PR_IDS.includes(exId);
+          return (
+            <div key={exId} className="rounded-2xl p-4" style={{background:'#141414', border:`1px solid ${pr.weight > 0 ? '#7c2d12' : '#1e1e1e'}`}}>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <p className="font-black text-white text-lg leading-none">{info.name}</p>
+                    {isDefault && (
+                      <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#1a0d00', color:'#f97316'}}>BIG 3</span>
+                    )}
+                  </div>
+                  <p className="text-xs mb-3" style={{color:'#6b7280'}}>{info.category}</p>
+                  {pr.weight > 0 ? (
+                    <div className="flex items-end gap-2">
+                      <p className="text-4xl font-black" style={{color:'#f97316'}}>{pr.weight}</p>
+                      <p className="text-lg font-bold mb-1" style={{color:'#9ca3af'}}>lbs</p>
+                      <p className="text-xs mb-1.5 ml-1" style={{color:'#6b7280'}}>{fmt(pr.date)}</p>
+                    </div>
+                  ) : (
+                    <p className="text-sm" style={{color:'#4b5563'}}>No data yet — log a session to set your PR</p>
+                  )}
+                </div>
+                {!isDefault && (
+                  <button onClick={() => remove(exId)} className="p-1.5 rounded-lg ml-2 mt-1" style={{color:'#4b5563', background:'#1e1e1e'}}>
+                    {Ic.trash}
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <button onClick={() => setPicker(true)}
+        className="w-full py-3 rounded-2xl text-sm font-semibold flex items-center justify-center gap-1"
+        style={{border:'1px dashed #374151', color:'#6b7280'}}>
+        {Ic.plus} Track Another PR
+      </button>
+
+      {picker && (
+        <ExSheet exercises={available} selected={[]} onToggle={addEx}
+          onClose={() => setPicker(false)} title="Add PR Exercise" />
       )}
     </div>
   );
@@ -684,7 +842,6 @@ function ExerciseLibraryView({ exercises, setExercises }) {
         className="w-full rounded-xl px-4 py-2.5 text-white text-sm mb-3 focus:outline-none"
         style={{background:'#141414',border:'1px solid #2a2a2a'}} />
 
-      {/* Category pills */}
       <div className="flex gap-2 overflow-x-auto pb-3 mb-4" style={{scrollbarWidth:'none'}}>
         {['All',...CATS].map(c=>(
           <button key={c} onClick={()=>setCat(c)}
@@ -717,7 +874,6 @@ function ExerciseLibraryView({ exercises, setExercises }) {
         </div>
       ))}
 
-      {/* Add Custom Modal */}
       {modal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{background:'rgba(0,0,0,0.85)'}}
              onClick={()=>setModal(false)}>
@@ -748,21 +904,61 @@ function ExerciseLibraryView({ exercises, setExercises }) {
   );
 }
 
+const DEFAULT_SPLITS = [
+  {
+    id:'sp1', name:'Push Pull Legs (PPL)',
+    days:[
+      { id:'sp1d1', name:'Push', exerciseIds:['e1','e2','e31','e34','e58','e59','e62'] },
+      { id:'sp1d2', name:'Pull', exerciseIds:['e16','e18','e24','e20','e22','e44','e48'] },
+      { id:'sp1d3', name:'Legs', exerciseIds:['e70','e73','e74','e75','e81','e76','e77'] },
+    ]
+  },
+  {
+    id:'sp2', name:'Upper / Lower',
+    days:[
+      { id:'sp2d1', name:'Upper A', exerciseIds:['e1','e18','e31','e20','e44','e58'] },
+      { id:'sp2d2', name:'Lower A', exerciseIds:['e70','e73','e74','e81','e76'] },
+      { id:'sp2d3', name:'Upper B', exerciseIds:['e2','e24','e32','e22','e46','e62'] },
+      { id:'sp2d4', name:'Lower B', exerciseIds:['e16','e87','e75','e80','e77'] },
+    ]
+  },
+  {
+    id:'sp3', name:'Bro Split',
+    days:[
+      { id:'sp3d1', name:'Chest',     exerciseIds:['e1','e2','e4','e9','e12'] },
+      { id:'sp3d2', name:'Back',      exerciseIds:['e16','e18','e20','e24','e22'] },
+      { id:'sp3d3', name:'Shoulders', exerciseIds:['e31','e34','e37','e38','e41'] },
+      { id:'sp3d4', name:'Arms',      exerciseIds:['e44','e48','e50','e58','e60','e62'] },
+      { id:'sp3d5', name:'Legs',      exerciseIds:['e70','e73','e74','e75','e81','e76'] },
+    ]
+  },
+  {
+    id:'sp4', name:'Full Body',
+    days:[
+      { id:'sp4d1', name:'Full Body A', exerciseIds:['e1','e16','e31','e70','e44','e58'] },
+      { id:'sp4d2', name:'Full Body B', exerciseIds:['e2','e18','e32','e73','e46','e62'] },
+      { id:'sp4d3', name:'Full Body C', exerciseIds:['e4','e20','e34','e80','e48','e60'] },
+    ]
+  },
+];
+
 // ── App Root ───────────────────────────────────────────────
 export default function App() {
   const [exercises, setExercises] = useState(() => load('gl_exercises', DEFAULT_EXERCISES));
-const [splits,    setSplits]    = useState(() => load('gl_splits',    []));
-const [sessions,  setSessions]  = useState(() => load('gl_sessions',  []));
-useEffect(() => save('gl_exercises', exercises), [exercises]);
-useEffect(() => save('gl_splits',    splits),    [splits]);
-useEffect(() => save('gl_sessions',  sessions),  [sessions]);
-  const [view,      setView]      = useState('home');
-  const [navData,   setNavData]   = useState(null);
+  const [splits, setSplits] = useState(() => load('gl_splits', DEFAULT_SPLITS));
+  const [sessions,  setSessions]  = useState(() => load('gl_sessions',  []));
 
-  const navigate = (v, data=null) => { setView(v); setNavData(data); };
+  useEffect(() => save('gl_exercises', exercises), [exercises]);
+  useEffect(() => save('gl_splits',    splits),    [splits]);
+  useEffect(() => save('gl_sessions',  sessions),  [sessions]);
+
+  const [view,    setView]    = useState('home');
+  const [navData, setNavData] = useState(null);
+
+  const navigate    = (v, data=null) => { setView(v); setNavData(data); };
   const saveSession = s => setSessions(p=>[s,...p]);
 
-  const navView = ['home','splits','history','exercises'].includes(view) ? view : 'home';
+  const navView = ['home','splits','pr','history','exercises'].includes(view) ? view : 'home';
 
   return (
     <div style={{minHeight:'100vh',background:'#0a0a0a',fontFamily:"'DM Sans', 'Inter', system-ui, sans-serif"}}>
@@ -778,6 +974,7 @@ useEffect(() => save('gl_sessions',  sessions),  [sessions]);
           {view==='splits'       && <SplitsView splits={splits} setSplits={setSplits} navigate={navigate} />}
           {view==='split-editor' && <SplitEditorView splits={splits} setSplits={setSplits} exercises={exercises} navigate={navigate} editSplit={navData} />}
           {view==='workout'      && navData && <WorkoutView split={navData.split} day={navData.day} exercises={exercises} sessions={sessions} saveSession={saveSession} navigate={navigate} />}
+          {view==='pr'           && <PRView exercises={exercises} sessions={sessions} />}
           {view==='history'      && <HistoryView sessions={sessions} exercises={exercises} navigate={navigate} sessionDetail={navData} />}
           {view==='exercises'    && <ExerciseLibraryView exercises={exercises} setExercises={setExercises} />}
         </div>
